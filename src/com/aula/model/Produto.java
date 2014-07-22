@@ -14,7 +14,7 @@ public class Produto implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id") 
     private Integer id;
     @Column(name = "nome")
     private String nome;
@@ -83,7 +83,5 @@ public class Produto implements Serializable {
         return "com.aula.model.Produto[ id=" + id + " ]";
     }
     
-    public String getLink(){
-    	return "faces/produto.jsp";
-    }
+ 
 }

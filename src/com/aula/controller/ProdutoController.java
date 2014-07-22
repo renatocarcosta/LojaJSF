@@ -18,13 +18,13 @@ public class ProdutoController {
 		retornoForm = "true";
 	}
 
-	public String cadastrar() {
+	public String salvar() {
 		EntityManagerFactory factory = Persistence
 				.createEntityManagerFactory("loja");
 		ProdutoDAO jpa = new ProdutoDAO(factory);
 		jpa.create(produto);
 		retornoForm = "false";
-		return "";
+		return null;
 	}
 
 	public List<Produto> getLista() {

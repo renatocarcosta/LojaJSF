@@ -1,23 +1,44 @@
 package com.aula.model;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-public class User {
-	private int id;
+@Entity
+@Table(name = "usuario")
+public class User implements Serializable{
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private Integer id;
+	@Column(name = "nome")
 	private String nome;
+	@Column(name = "user")
 	private String user;
+	@Column(name = "pass")
 	private String pass;
+	@Column(name = "cpf")
 	private String cpf;
+	@Temporal(value = TemporalType.DATE)
+	@Column(name = "datanasc")
 	private Date dataNascimento;
+	@Column(name = "email")
 	private String email;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -68,20 +89,30 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	 @Override
+	    public int hashCode() {
+	        int hash = 0;
+	        hash += (id != null ? id.hashCode() : 0);
+	        return hash;
+	    }
 
-	public boolean login() {
-		if (!this.user.trim().isEmpty() && !this.pass.trim().isEmpty()) {
-			// Aqui será mockado o acesso ao banco de dados
-			// TODO Implementar o acesso ao BD
-			this.nome = "Luciano Monteiro";
-			this.cpf = "456456456";
-			Calendar data = Calendar.getInstance();
-			data.set(1975, 3, 24);
-			this.dataNascimento = data.getTime();
-			this.email = "lucams@gmail.com";
-			return true;
-		}
-		return false;
-	}
+	    @Override
+	    public boolean equals(Object object) {
+	        // TODO: Warning - this method won't work in the case the id fields are not set
+	        if (!(object instanceof User)) {
+	            return false;
+	        }
+	        User other = (User) object;
+	        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+	            return false;
+	        }
+	        return true;
+	    }
 
+	    @Override
+	    public String toString() {
+	        return "com.aula.model.User[ id=" + id + " ]";
+	    }
+	
 }

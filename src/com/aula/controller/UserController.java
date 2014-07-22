@@ -3,21 +3,29 @@ package com.aula.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.view.ViewScoped;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import com.aula.model.User;
 import com.aula.model.dao.UserDAO;
 
+@ManagedBean
 public class UserController {
 
 	private User user;
-	private UserDAO userDAO;
+	private UserDAO jpa;
 	private List<User> users;
-	private String retornoForm;
+	private String exibeForm;
 
 	public UserController() {
 		user = new User();
-		userDAO = new UserDAO();
+		EntityManagerFactory factory = Persistence
+				.createEntityManagerFactory("loja");
+		UserDAO jpa = new UserDAO(factory);
 		users = new ArrayList<User>();
-		retornoForm = "true";
+		exibeForm = "false";
 	}
 
 	public User getUser() {
@@ -36,24 +44,21 @@ public class UserController {
 		this.users = users;
 	}
 
+	
+	public String novo(){
+		exibeForm = "true";
+		return null;
+	}
+	
+	
 	public String salvar() {
-		String retorno = "";
-		// Validação e Conversão
-
-		// Gravação
-		if (userDAO.salvar(user)) {
-			retorno = "home";
-			retornoForm = "false";
-		} else {
-			retorno = "formUser";
-			retornoForm = "true";
-		}
-
-		return retorno;
+		jpa.create(user);
+		exibeForm = "false";
+		return null;
 	}
 
-	public String getRetornoForm() {
-		return retornoForm;
+	public String getExibeForm() {
+		return exibeForm;
 	}
 
 }
