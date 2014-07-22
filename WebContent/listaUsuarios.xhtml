@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:fragment>
+		<h:commandButton value="Novo" action="#{userController.novo}"
+			styleClass="btn btn-success" />
+		<h:dataTable value="#{ProdutoController.lista}" var="reg"
+			styleClass="table table-striped">
+			<f:facet name="header">
+				<h:outputText value="Listagem de Produtos" />
+			</f:facet>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="ID" />
+				</f:facet>
+				<h:outputText value="#{reg.id}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Nome" />
+				</f:facet>
+				<h:outputText value="#{reg.nome}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Valor" />
+				</f:facet>
+				<h:outputText value="#{reg.valor}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Editar" />
+				</f:facet>
+				<h:outputLink value="#{reg}">
+					<h:outputText value="Editar" />
+				</h:outputLink>
+			</h:column>
+
+
+		</h:dataTable>
+	</ui:fragment>
+</ui:composition>

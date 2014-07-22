@@ -1,0 +1,44 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	<h:panelGroup layout="block" styleClass="control-group">
+		<h:outputLabel value="Id:" for="id" styleClass="control-label" />
+		<h:panelGroup layout="block" styleClass="controls">
+			<h:inputText value="#{userController.user.id}"
+				styleClass="input-small" id="id" />
+		</h:panelGroup>
+	</h:panelGroup>
+
+	<h:panelGroup layout="block" styleClass="control-group">
+		<h:outputLabel value="Nome:" for="nome" styleClass="control-label" />
+		<h:panelGroup layout="block" styleClass="controls">
+			<h:inputText value="#{userController.user.nome}"
+				styleClass="input-xlarge" id="nome" />
+		</h:panelGroup>
+	</h:panelGroup>
+
+	<h:panelGroup layout="block" styleClass="control-group">
+		<h:outputLabel value="Cpf:" for="cpf" styleClass="control-label" />
+		<h:panelGroup layout="block" styleClass="controls">
+			<h:inputText value="#{userController.user.cpf}"
+				styleClass="input-medium" id="cpf" />
+		</h:panelGroup>
+	</h:panelGroup>
+
+	<h:panelGroup layout="block" styleClass="control-group">
+		<h:outputLabel value="Email:" for="email" styleClass="control-label" />
+		<h:panelGroup layout="block" styleClass="controls">
+			<h:inputText value="#{userController.user.email}"
+				styleClass="input-medium" id="email" />
+		</h:panelGroup>
+	</h:panelGroup>
+
+	<h:panelGroup layout="block" styleClass="control-group">
+		<h:panelGroup layout="block" styleClass="controls">
+			<h:commandButton action="#{userController.salvar()}" value="Salvar"
+				styleClass="btn btn-success" />
+		</h:panelGroup>
+	</h:panelGroup>
+</ui:composition>
