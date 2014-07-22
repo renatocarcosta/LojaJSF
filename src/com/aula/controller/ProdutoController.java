@@ -1,5 +1,6 @@
 package com.aula.controller;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.EntityManagerFactory;
@@ -8,8 +9,12 @@ import javax.persistence.Persistence;
 import com.aula.model.Produto;
 import com.aula.model.dao.ProdutoDAO;
 
-public class ProdutoController {
+public class ProdutoController implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4229068868524639911L;
 	private Produto produto;
 	private String retornoForm;
 

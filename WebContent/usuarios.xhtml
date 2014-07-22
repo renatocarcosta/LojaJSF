@@ -9,14 +9,13 @@
 		<ui:define name="content">
 			<h:panelGroup id="lista"
 				rendered="#{!userController.exibeForm}">
-				<ui:include src="/listaUsuarios.xhtml" />
+				<ui:include src="listaUsuarios.xhtml" />
 			</h:panelGroup>
 			
 			<h:panelGroup id="formulario"
 				rendered="#{userController.exibeForm}">
-				<ui:include src="/formUsuarios.xhtml" />
+				<ui:include src="formUsuarios.xhtml" />
 			</h:panelGroup>
-			
 		</ui:define>
 	</ui:composition>
 </h:body>

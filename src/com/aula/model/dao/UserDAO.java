@@ -24,7 +24,7 @@ public class UserDAO {
 		return emf.createEntityManager();
 	}
 
-	public void create(User user) {
+	public void save(User user) {
 		EntityManager em = null;
 		try {
 			em = getEntityManager();
