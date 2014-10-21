@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Loja</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet name="bootstrap.css" library="css" />
+	<h:outputStylesheet name="bootstrap-theme.css" library="css" />
+	<h:outputScript name="bootstrap.js" library="js" />
+</h:head>
+
+<body>
+	<div id="top" class="top">
+		<ui:insert name="top">
+			<ui:include src="topo.xhtml" />
+		</ui:insert>
+	</div>
+
+	<!-- CLASSE QUE DEFINE O CONTAINER COMO FLUIDO (100%) -->
+	<div class="container-fluid">
+		<!-- CLASSE PARA DEFINIR UMA LINHA -->
+		<div class="row-fluid">
+			<div class="span2">
+				<div id="left">
+					<ui:include src="menu.xhtml" />
+				</div>
+			</div>
+			<!-- COLUNA OCUPANDO 10 ESPAÇOS NO GRID -->
+			<div class="span10">
+				<div class="well">
+					<div id="content" class="left_content">
+						<h:form id="formPrinc" styleClass="form-horizontal">
+							<p:growl id="msg" autoUpdate="true" showDetail="true" />
+							<ui:insert name="content">Content</ui:insert>
+						</h:form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
